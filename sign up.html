@@ -1,0 +1,113 @@
+
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>SUP'Cours</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/sup.png" rel="icon">
+  <link href="assets/img/sup.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2 class="text-center text-dark mt-5">Se connecter</h2>
+        <div class="text-center mb-5 text-dark">Bienvenue dans le site !</div>
+        <div class="card my-5">
+
+          <form class="card-body cardbody-color p-lg-5">
+
+            <div class="text-center">
+              <img src="assets/img/sup.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                width="200px" alt="profile">
+            </div>
+
+            <div class="mb-3">
+              <input type="text" class="form-control" id="Username" aria-describedby="emailHelp"
+                placeholder="Nom">
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" id="password" placeholder="Mot de passe">
+            </div>
+            <div class="text-center"><button type="submit" href="index.html" class="btn btn-color px-5 mb-5 w-100">Se connecter</button></div>
+            <div id="emailHelp" href="s'enregistrer.html" class="form-text text-center mb-5 text-dark">Pas encore de compte ?<a href="s'enregistrer.html" class="text-dark fw-bold"> Créer un compte !</a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+        <script>
+        const signup = document.querySelector(".signup");
+        const termCond = document.querySelector("#accept");
+        const password = document.querySelector("#password");
+        const confirmPassword = document.querySelector("#confirmPassword");
+        const pwd_format = document.querySelector(".pwd-format");
+        // lets define a password format
+        // The password should contain around 8-15 alhpanumeric character
+
+        const passwordPattern = /^[a-zA-Z0-9]{8,15}$/
+
+        password.addEventListener('focusin', () => {
+            pwd_format.style.display = 'block';
+
+            // now lets check the password entered by the user
+            password.addEventListener('keyup', () => {
+                if (passwordPattern.test(password.value)) {
+                    password.style.borderColor = 'green' // if password pattern matches the border of password input will ne green
+                    pwd_format.style.color = 'green'
+                } else {
+                    password.style.borderColor = 'red'
+                    pwd_format.style.color = 'red'
+                }
+            })
+        })
+
+        password.addEventListener('focusout', () => {
+            pwd_format.style.display = 'none';
+        })
+
+        confirmPassword.addEventListener('focusin', () => {
+            pwd_format.style.display = 'block';
+            confirmPassword.addEventListener('keyup', () => {
+                if (passwordPattern.test(confirmPassword.value) && password.value === confirmPassword.value) {
+                    confirmPassword.style.borderColor = 'green' // if password pattern matches the border of password input will ne green
+                    pwd_format.style.color = 'green'
+                } else {
+                    confirmPassword.style.borderColor = 'red'
+                    pwd_format.style.color = 'red'
+                }
+            })
+        })
+
+        confirmPassword.addEventListener('focusout', () => {
+            pwd_format.style.display = 'none';
+        })
+
+        termCond.addEventListener('change', () => {
+            if (termCond.checked === true) {
+                signup.disabled = false;
+            } else if (termCond.checked === false) {
+                signup.disabled = true;
+            }
+        })
+    </script>
+
+    </div>
+  </div>
